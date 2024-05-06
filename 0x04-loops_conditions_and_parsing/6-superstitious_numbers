@@ -23,5 +23,5 @@ do
  		*)
 			echo $COUNT
 esac
-COUNT=$((COUNT+1))
+((COUNT++))
 done

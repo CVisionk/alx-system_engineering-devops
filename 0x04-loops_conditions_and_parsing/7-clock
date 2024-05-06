@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+countMinutes()
+{
+	COUNT='0'
+	while [ $COUNT -le 59 ]; do
+		echo $COUNT
+		((COUNT++))
+	done	
+}
+
+
+countHours()
+{
+	local HOURS=$1
+	COUNTHOUR='0'
+	while [ $COUNTHOUR -le $HOURS ]; do
+		echo "Hour: $COUNTHOUR"
+		countMinutes
+		((COUNTHOUR++))
+	done
+}
+
+countHours '12'
