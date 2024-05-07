@@ -1,15 +1,8 @@
 #!/usr/bin/env ruby
+# A regular expression that is matching and outputs School
+
 # Check if argument is provided
 if ARGV.empty?
   exit
 end
-
-string = ARGV[0]
-pattern = /School/
-
-index = 0
-while match = string.match(pattern, index)
-  print "#{match[0]}"
-  index = match.end(0)
-end
-puts ''
+puts ARGV[0].scan(/School/).join
