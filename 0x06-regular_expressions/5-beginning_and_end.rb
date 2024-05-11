@@ -5,4 +5,4 @@
 if ARGV.empty?
   exit
 end
-puts ARGV[0].scan(/h.+n$/).join
+puts ARGV[0].scan(/h.n/).join
