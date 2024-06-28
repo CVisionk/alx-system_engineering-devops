@@ -1,8 +1,8 @@
-# creates a file in /tmp
-
+# Puppet manifest to create a file in /tmp
 file { '/tmp/school':
-  content =>'I love Puppet',
-  mode    => '0744',
-  owner   => 'www-data',
-  group   => 'www-data',
+  ensure  => file,           # Ensure it's a regular file
+  mode    => '0744',         # File permissions
+  owner   => 'www-data',     # File owner
+  group   => 'www-data',     # File group
+  content => 'I love Puppet' # File content
 }
