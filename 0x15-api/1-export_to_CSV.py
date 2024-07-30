@@ -2,8 +2,8 @@
 """
     Placeholder
 """
-import requests
 import csv
+import requests
 import sys
 
 
@@ -45,8 +45,7 @@ def export_to_csv(employee_id, employee_name, tasks):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            writer.writerow(
-                [employee_id, employee_name, task['completed'], task['title']])
+            writer.writerow([employee_id, employee_name, task['completed'], task['title']])
 
 
 if __name__ == "__main__":
