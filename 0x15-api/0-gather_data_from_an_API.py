@@ -29,10 +29,9 @@ def get_employee_tasks(employee_id):
         raise ValueError("Error fetching tasks")
     all_tasks = all_tasks_response.json()
 
-    completed_tasks = [
-        task['title'] for task in all_tasks if task['completed']]
+    completedTasks = [task['title'] for task in all_tasks if task['completed']]
 
-    return employee_name, len(completed_tasks), len(all_tasks), completed_tasks
+    return employee_name, len(completedTasks), len(all_tasks), completedTasks
 
 
 if __name__ == "__main__":
