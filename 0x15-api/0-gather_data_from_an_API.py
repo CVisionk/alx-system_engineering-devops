@@ -5,6 +5,7 @@
 import requests
 import sys
 
+
 def get_employee_tasks(employee_id):
     """Fetches employee tasks from the JSONPlaceholder API.
 
@@ -12,7 +13,7 @@ def get_employee_tasks(employee_id):
         employee_id (int): The ID of the employee.
 
     Returns:
-        tuple: A tuple containing the employee's name, number of completed tasks, 
+        tuple: A tuple containing the employee name, number of completed tasks
                total number of tasks, and a list of completed task titles.
     """
     base_url = "https://jsonplaceholder.typicode.com"
@@ -28,9 +29,11 @@ def get_employee_tasks(employee_id):
         raise ValueError("Error fetching tasks")
     all_tasks = all_tasks_response.json()
 
-    completed_tasks = [task['title'] for task in all_tasks if task['completed']]
+    completed_tasks = [
+        task['title'] for task in all_tasks if task['completed']]
 
     return employee_name, len(completed_tasks), len(all_tasks), completed_tasks
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -52,4 +55,3 @@ if __name__ == "__main__":
     print(f"Employee {name} is done with tasks({completed}/{total}):")
     for task in tasks:
         print(f"\t {task}")
-
