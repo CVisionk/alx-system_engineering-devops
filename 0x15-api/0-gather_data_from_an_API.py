@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""
+    Placeholder
+"""
 import requests
 import sys
 
@@ -13,20 +17,17 @@ def get_employee_tasks(employee_id):
     """
     base_url = "https://jsonplaceholder.typicode.com"
 
-    # Get employee name
     user_response = requests.get(f"{base_url}/users/{employee_id}")
     if user_response.status_code != 200:
         raise ValueError("Invalid employee ID")
     user_data = user_response.json()
     employee_name = user_data['name']
 
-    # Get all tasks for the employee
     all_tasks_response = requests.get(f"{base_url}/todos?userId={employee_id}")
     if all_tasks_response.status_code != 200:
         raise ValueError("Error fetching tasks")
     all_tasks = all_tasks_response.json()
 
-    # Filter completed tasks
     completed_tasks = [task['title'] for task in all_tasks if task['completed']]
 
     return employee_name, len(completed_tasks), len(all_tasks), completed_tasks
