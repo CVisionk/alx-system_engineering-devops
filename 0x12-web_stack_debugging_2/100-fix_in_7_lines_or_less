@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-# run software as another user
-
-sudo -u "$1" whoami
+# run nginx as nginx
+sudo sed -i 's/user www-data/user nginx' /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo chmod 644 /etc/nginx/nginx.conf
+pkill apache2
+sudo -u nginx service nginx restart#!/usr/bin/env bash

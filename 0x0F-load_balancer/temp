@@ -1,0 +1,22 @@
+curl -sI localhost
+
+"""
+ ./load-balance
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+nginx is already the newest version (1.18.0-0ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 73 not upgraded.
+Hello World!
+Ceci n'est pas une page
+nginx: [emerg] a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:22
+nginx: configuration file /etc/nginx/nginx.conf test failed
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xe" for details.
+ubuntu@497358-web-01:~$
+"""
